@@ -1,13 +1,13 @@
-import React from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
-import { useCurrentUser } from '@/hooks/index';
+import React from "react";
+import Head from "next/head";
+import Link from "next/link";
+import { useCurrentUser } from "@/hooks/index";
 
 export default function Layout({ children }) {
   const [user, { mutate }] = useCurrentUser();
   const handleLogout = async () => {
-    await fetch('/api/auth', {
-      method: 'DELETE',
+    await fetch("/api/auth", {
+      method: "DELETE",
     });
     mutate(null);
   };
@@ -18,23 +18,19 @@ export default function Layout({ children }) {
           a {
             text-decoration: none !important;
             cursor: pointer;
-            color: #0070f3;
+            color: #70ad89;
           }
           a:hover {
-            color: #0366d6;
+            color: #70ad89;
           }
           body {
             margin: 0;
             padding: 0;
-            color: #111;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-              'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-              'Helvetica Neue', sans-serif;
-            background-color: #fff;
+            font-family: "Fira Code", monospace;
+            color: #f5f2e2;
+            background-color: #1e1e20;
           }
           h2 {
-            color: #333;
-            text-align: center;
           }
           label {
             display: flex;
@@ -103,7 +99,7 @@ export default function Layout({ children }) {
             float: left;
           }
           nav:after {
-            content: '';
+            content: "";
             clear: both;
             display: table;
           }
@@ -146,28 +142,32 @@ export default function Layout({ children }) {
         <nav>
           <Link href="/">
             <a>
-              <h1>Next.js + MongoDB App</h1>
+              <h1>Tiny Hardware Club</h1>
             </a>
           </Link>
           <div>
+            <Link href="/store">
+              <a>store</a>
+            </Link>
+            <Link href="/catalog">
+              <a>catalog</a>
+            </Link>
+            <Link href="/newsletter">
+              <a>newsletter</a>
+            </Link>
+          </div>
+          <div>
             {!user ? (
-              <>
-                <Link href="/login">
-                  <a>Sign in</a>
-                </Link>
-                <Link href="/signup">
-                  <a>Sign up</a>
-                </Link>
-              </>
+              <></>
             ) : (
               <>
                 <Link href={`/user/${user._id}`}>
-                  <a>Profile</a>
+                  <a>acount</a>
                 </Link>
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a tabIndex={0} role="button" onClick={handleLogout}>
+                {/* <a tabIndex={0} role="button" onClick={handleLogout}>
                   Logout
-                </a>
+                </a> */}
               </>
             )}
           </div>
@@ -177,28 +177,21 @@ export default function Layout({ children }) {
       <main>{children}</main>
       <footer>
         <p>
-          Made with
-          {' '}
+          Made with{" "}
           <span role="img" aria-label="Love">
             ❤️
           </span>
-          ,
-          {' '}
+          ,{" "}
           <span role="img" aria-label="Fire">
             🔥
           </span>
-          , and a keyboard by
-          {' '}
-          <a href="https://hoangvvo.com/">Hoang Vo</a>
-          .
+          , and a keyboard by <a href="https://hoangvvo.com/">Hoang Vo</a>.
         </p>
         <p>
-          Source code is on
-          {' '}
-          <a href="https://github.com/hoangvvo/nextjs-mongodb-app">Github</a>
-          .
+          Source code is on{" "}
+          <a href="https://github.com/hoangvvo/nextjs-mongodb-app">Github</a>.
         </p>
       </footer>
     </>
   );
-};
+}

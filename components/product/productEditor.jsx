@@ -1,0 +1,66 @@
+import React, { useState } from "react";
+import { useCurrentUser } from "@/hooks/index";
+
+export default function ProductEditor() {
+  const [user] = useCurrentUser();
+
+  const [msg, setMsg] = useState(null);
+
+  if (!user) {
+    return (
+      <div style={{ textAlign: "center" }}>
+        {/* Please sign in to a product */}
+      </div>
+    );
+  }
+
+  async function hanldeSubmit(e) {
+    e.preventDefault();
+    const body = {
+      content: e.currentTarget.content.value,
+    };
+    if (!e.currentTarget.content.value) return;
+    e.currentTarget.content.value = "";
+    const res = await fetch("/api/products", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+    if (res.ok) {
+      setMsg("Product Added!");
+      setTimeout(() => setMsg(null), 5000);
+    }
+  }
+
+  return (
+    <>
+      <p style={{ textAlign: "center" }}>{msg}</p>
+      <form
+        onSubmit={hanldeSubmit}
+        style={{ flexDirection: "row" }}
+        autoComplete="off"
+      >
+        <label htmlFor="name">
+          <input name="content" type="text" placeholder="Product Name" />
+        </label>
+        {/* <label htmlFor="name">
+          <input
+            name="content"
+            type="text"
+            placeholder="Say something, I'm giving up on you..."
+          />
+        </label>
+        <label htmlFor="name">
+          <input
+            name="content"
+            type="text"
+            placeholder="Say something, I'm giving up on you..."
+          />
+        </label> */}
+        <button type="submit" style={{ marginLeft: "0.5rem" }}>
+          Save Product
+        </button>
+      </form>
+    </>
+  );
+}

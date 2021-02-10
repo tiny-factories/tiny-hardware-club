@@ -19,17 +19,9 @@ const IndexPage = () => {
           }
         `}
       </style>
-      <div className="cf ph2-ns">
-        <div className="fl w-100 ph3">
-          <h2>Store</h2>
-        </div>
-        <div className="fl w-100 pa3">
-          <p>
-            Our store will add new projects each quarter and you can always
-            recommend open hardware projects you would like us to source. Just
-            send us an <span>email</span>.
-          </p>
-        </div>
+      <div style={{ marginBottom: "2rem" }}>
+        <h2>Hello, {user ? user.name : "stranger"}!</h2>
+        <p>Have a wonderful day.</p>
       </div>
       <div>
         <h3>
@@ -38,6 +30,8 @@ const IndexPage = () => {
             🌎
           </span>
         </h3>
+        <PostEditor />
+        <CardHardware />
       </div>
     </>
   );
