@@ -30,7 +30,14 @@ export default function Layout({ children }) {
             color: #f5f2e2;
             background-color: #1e1e20;
           }
+          h1 {
+            color: #f5f2e2;
+
+          }
+
           h2 {
+            color: #f5f2e2;
+
           }
           label {
             display: flex;
@@ -52,7 +59,7 @@ export default function Layout({ children }) {
             margin-left: 0.5rem;
             box-shadow: none;
             width: 100%;
-            color: #000;
+            color: #f5f2e2;
             background-color: transparent;
             border: 1px solid #d8d8d8;
             border-radius: 5px;
@@ -93,7 +100,6 @@ export default function Layout({ children }) {
           }
           nav h1 {
             font-size: 1rem;
-            color: #444;
             margin: 0;
             font-weight: 700;
             float: left;
@@ -103,6 +109,7 @@ export default function Layout({ children }) {
             clear: both;
             display: table;
           }
+
           main {
             padding: 1rem;
             max-width: 1040px;
@@ -146,9 +153,7 @@ export default function Layout({ children }) {
             </a>
           </Link>
           <div>
-            <Link href="/store">
-              <a>store</a>
-            </Link>
+
             <Link href="/catalog">
               <a>catalog</a>
             </Link>
@@ -175,22 +180,37 @@ export default function Layout({ children }) {
       </header>
 
       <main>{children}</main>
-      <footer>
-        <p>
-          Made with{" "}
-          <span role="img" aria-label="Love">
-            ❤️
-          </span>
-          ,{" "}
-          <span role="img" aria-label="Fire">
-            🔥
-          </span>
-          , and a keyboard by <a href="https://hoangvvo.com/">Hoang Vo</a>.
-        </p>
-        <p>
-          Source code is on{" "}
-          <a href="https://github.com/hoangvvo/nextjs-mongodb-app">Github</a>.
-        </p>
+      <footer className="dt w-100 pa3-ns">
+        <div className="dtc v-mid w-50 tl">
+          <div className="link diblink dib b">
+            <a
+              href="https://tinyfactories.space"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              a tiny factories project ↗
+            </a>
+          </div>
+        </div>
+        <div className="dtc v-mid w-15 tr">
+          <a
+            href="https://github.com/tiny-factories/code-of-conduct"
+            className="link dib"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            code of conduct ↗
+          </a>{" "}
+          ·
+          <a
+            href="hyper://ce361e407fd3cf2a3cdf3ed7e08b3fb0383f95b502ee88ebd76c977dc280b215/"
+            className="link dib"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            p2p ↗
+          </a>
+        </div>
       </footer>
     </>
   );
