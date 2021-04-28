@@ -144,6 +144,7 @@ export default function Layout({ children }) {
           property="og:image"
           content="https://repository-images.githubusercontent.com/201392697/5d392300-eef3-11e9-8e20-53310193fbfd"
         />
+        <script async defer data-website-id="ee5ddd4c-db4b-4d90-8575-f3aad940a7d5" src="https://umami.tinyfactories.space/umami.js"></script>
       </Head>
       <header>
         <nav>
