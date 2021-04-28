@@ -43,20 +43,8 @@ export default function ProductEditor() {
         <label htmlFor="name">
           <input name="content" type="text" placeholder="Product Name" />
         </label>
-        {/* <label htmlFor="name">
-          <input
-            name="content"
-            type="text"
-            placeholder="Say something, I'm giving up on you..."
-          />
-        </label>
-        <label htmlFor="name">
-          <input
-            name="content"
-            type="text"
-            placeholder="Say something, I'm giving up on you..."
-          />
-        </label> */}
+
+
         <button type="submit" style={{ marginLeft: "0.5rem" }}>
           Save Product
         </button>

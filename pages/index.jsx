@@ -1,7 +1,5 @@
 import React from "react";
 import { useCurrentUser } from "@/hooks/index";
-import PostEditor from "@/components/post/editor";
-import CardHardware from "@/components/post/cardhardware";
 
 const IndexPage = () => {
   const [user] = useCurrentUser();

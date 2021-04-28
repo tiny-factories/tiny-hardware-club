@@ -26,6 +26,7 @@ function Product({ product }) {
         `}
       </style>
       <div>
+      cat
         <p>{product.content}</p>
         <small>{new Date(product.createdAt).toLocaleString()}</small>
       </div>

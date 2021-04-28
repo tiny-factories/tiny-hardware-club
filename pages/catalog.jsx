@@ -2,10 +2,12 @@ import React from "react";
 import { useCurrentUser } from "@/hooks/index";
 import ProductEditor from "@/components/product/productEditor";
 import Products from "@/components/product/products";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 const CatalogPage = () => {
   {
-    /* const [user] = useCurrentUser(); */
+     const [user] = useCurrentUser();
   }
 
   return (
@@ -23,11 +25,26 @@ const CatalogPage = () => {
         <p>Have a wonderful day.</p>
       </div>
       <div>
-        <h3>Search box and categories go here</h3>
-        <input />
-        {/* <ProductEditor /> */}
-        {/* @FIX: posting isnt working */}
-        <Products />
+        <ProductEditor />
+        <Tabs>
+        <TabList>
+          <Tab>All</Tab>
+          <Tab>Keyboards</Tab>
+          <Tab>Title 2</Tab>
+          <Tab>Title 2</Tab>
+          <Tab>Title 2</Tab>
+
+        </TabList>
+
+        <TabPanel>
+          <Products />
+
+        </TabPanel>
+        <TabPanel>
+          <Products />
+
+        </TabPanel>
+      </Tabs>
       </div>
     </>
   );
